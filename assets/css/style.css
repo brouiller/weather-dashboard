@@ -34,6 +34,9 @@ body {
     "Lucida Sans", Arial, sans-serif;
   font-size: 1.6rem;
 }
+h1, h5 {
+  text-transform: capitalize;
+}
 
 a {
   color: var(--honeyDew);
@@ -56,6 +59,7 @@ main div {
   /* border: 1px solid var(--celadonBlue); */
   padding: 0.5rem;
 }
+
 .contain {
   height:500px;
 }

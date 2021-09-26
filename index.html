@@ -16,11 +16,34 @@
   </head>
   <body>
     <header>
-      <h1></h1>
-      <nav></nav>
+      <h1>Weather Dashboard</h1>
     </header>
-    <main>
-      <aside></aside>
+    <main class="container">
+      <div class="row contain">
+        <div class="col-3 cities">
+          <div class="row citytop">
+            <h1>Search for a City:</h1>
+            <input type="text" class="city form-control" />
+            <button type="button" class="btn btn-primary col-12" id="submit">
+              Search
+            </button>
+          </div>
+          <div class='row citybottom'>
+            
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="row h-50 daily"></div>
+          <div class="row" <div class="row">
+            <h1>5-Day Forecast:</h1>
+            <div class="col"><div class="card day1"></div></div>
+            <div class="col"><div class="card day2"></div></div>
+            <div class="col"><div class="card day3"></div></div>
+            <div class="col"><div class="card day4"></div></div>
+            <div class="col"><div class="card day5"></div></div>
+          </div>
+        </div>
+      </div>
     </main>
     <footer></footer>
     <script

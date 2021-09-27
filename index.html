@@ -22,69 +22,25 @@
       <div class="row contain">
         <div class="col-3 cities">
           <div class="row citytop">
-            <h2>Search for a City:</h2>
-            <input type="text" class="city form-control m-1" value='atlanta'>
-            <button type="button" class="btn btn-primary col-12 m-1" id="submit">
+            <h5>Search for a City:</h5>
+            <input type="text" class="city form-control m-1">
+            <button
+              type="button"
+              class="btn btn-primary col-12 m-1"
+              id="submit"
+            >
               Search
             </button>
           </div>
-          <div class="row citybottom"></div>
+          <div class="row citybottom">
+            <ul id='citylist'></ul>
+          </div>
         </div>
         <div class="col-9">
-          <div class="row h-50 daily">
-            <h1 id='topCity'></h1>
-            <p id='topTemp'></p>
-            <p id='topWind'></p>
-            <p id='topHumidity'></p>
-            <p><span id='topUvi' class='p-1 rounded text-dark'></span></p>
+          <div class="row p-1" id="topCard">
           </div>
-          <div class="row">
-            <h1>5-Day Forecast:</h1>
-            <div class="col">
-              <div class="card day0">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card day1">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card day2">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card day3">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card day4">
-                <h5 class="card-title"></h5>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-                <p class="card-text"></p>
-              </div>
-            </div>
+          <div class="row p-1" id="daily">
+            <h2></h2>
           </div>
         </div>
       </div>

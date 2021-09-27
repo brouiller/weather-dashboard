@@ -28,43 +28,66 @@ COLOR PALETTE
 }
 /* Element Selectors */
 body {
-  background-color: var(--prussianBlue);
+  background-color: var(--celadonBlue);
   color:var(--honeyDew);
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
-h1, h5 {
+h1, h2, h5 {
   text-transform: capitalize;
 }
-
+h1, h2 {
+  font-size: 2rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
 a {
   color: var(--honeyDew);
   text-decoration: underline;
 }
+
 /* ------HEADER------ */
 header {
   padding: 1rem;
-  background-color: var(--imperialRed);
+  background-color: var(--prussianBlue);
   text-align: center;
+  border-bottom: 0.25rem dashed var(--celadonBlue);
 }
 
 header h1 {
   display: inline-block;
   font-size: 48px;
+  border-bottom: 1rem dashed var(--imperialRed);
 }
 
 /* ------MAIN------ */
 main div {
   /* border: 1px solid var(--celadonBlue); */
-  padding: 0.5rem;
+  /* padding: 0.5rem; */
 }
 
-.contain {
-  height:500px;
+#topCard {
+  margin: 0.5rem;
 }
-
+.topBorder{
+  border: 0.25rem dashed var(--imperialRed);
+}
 .no-gutters {
   margin-right: 0;
   margin-left: 0;
+}
+.card {
+  background-color:unset;
+  border: 0.25rem dashed var(--imperialRed);
+  margin-top: 0.25rem;
+}
+.citytop {
+  border-bottom: 0.25rem dashed var(--imperialRed);
+}
+.btn {
+  background-color: var(--imperialRed);
+  color: var(--honeyDew);
+  font:unset;
 }

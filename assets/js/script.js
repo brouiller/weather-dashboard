@@ -37,6 +37,8 @@ function makeLink() {
   var citylink = this.textContent;
   var latlink = $(this).attr("data-lat");
   var lonlink = $(this).attr("data-lon");
+  $('#text').val('');
+  storeCity(latlink, lonlink, citylink);
   getWeather(latlink, lonlink, citylink);
 }
 
@@ -57,6 +59,7 @@ function getCity() {
       .then(function (data) {
         getWeather(data[0].lat, data[0].lon, city);
         storeCity(data[0].lat, data[0].lon, city);
+        $("#text").val("");
       });
   } else {
     alert("Please enter a city.");
@@ -76,12 +79,9 @@ function storeCity(lat, lon, city) {
   if (!storedCities.some((u) => u.location === entry.location)) {
     storedCities.unshift(entry);
   } else {
-    console.log(storedCities);
-    console.log(entry);
-    // const i = storedCities.indexOf(entry);
-    // console.log(i);
-    // storedCities.splice(i, 1);
-
+    var i = storedCities.findIndex(x => x.location === entry.location);
+    storedCities.splice(i, 1);
+    storedCities.unshift(entry);
   }
   localStorage.setItem("cities", JSON.stringify(storedCities));
   location.reload;

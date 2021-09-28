@@ -11,6 +11,7 @@ function init() {
   }
 }
 
+//pulls the cities array from local storage and puts each city into the ul with data attributes containing lat and lon, then makes it clickable to return weather for that city
 function printStoredCities() {
   var cities = JSON.parse(localStorage.getItem("cities"));
   if (cities) {
@@ -33,6 +34,7 @@ function printStoredCities() {
   }
 }
 
+//pulls lat, lon, and city name from li, then sends to storage and gets the weather
 function makeLink() {
   var citylink = this.textContent;
   var latlink = $(this).attr("data-lat");
@@ -42,6 +44,7 @@ function makeLink() {
   getWeather(latlink, lonlink, citylink);
 }
 
+//checks for empy values, looks up the city name from the geocode api, returns the coords, sends the info to storage, and gets the weather
 function getCity() {
   var city = $(".city").val().trim();
   city = city.toLowerCase();
@@ -66,6 +69,7 @@ function getCity() {
   }
 }
 
+//adds a new object to the local storage array, checks to see if it already exists, if it exits, deletes it from the array and inserts it at the front
 function storeCity(lat, lon, city) {
   var storedCities = JSON.parse(localStorage.getItem("cities"));
   if (storedCities == null) {
@@ -87,6 +91,7 @@ function storeCity(lat, lon, city) {
   location.reload;
 }
 
+//clears existing weather data from page, calls the api for new data, writes that data to the page (including coloring the UVI background based on severity), then refreshes the stored cities array with the last searched city on top
 function getWeather(lat, lon, city) {
   var clearTopcard = (document.getElementById("topCard").innerHTML = "");
   var clearDaily = (document.getElementById("daily").innerHTML = "<h2></h2>");
@@ -105,8 +110,6 @@ function getWeather(lat, lon, city) {
       return response.json();
     })
     .then(function (data) {
-      //   console.log(data);
-      //   console.log(data.daily);
       $("<div>", { class: "row w-100 topBorder" })
         .append(
           $(

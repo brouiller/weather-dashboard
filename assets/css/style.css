@@ -1,17 +1,5 @@
 /*
-----------------------------------------------------
-TABLE OF CONTENTS                                   |
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯                                  |
-HEADER -                                            |
-MAIN -                                              |
-FOOTER -                                            |
-----------------------------------------------------
 COLOR PALETTE
-#E63946 - Imperial Red
-#F1FAEE - Honeydew
-#A8DADC - Powder Blue
-#457B9D - Celadon Blue
-#1D3557 - Prussian Blue
 */
 :root {
   --imperialRed: #E63946;
@@ -26,7 +14,7 @@ COLOR PALETTE
   padding: 0;
   margin: 0;
 }
-/* Element Selectors */
+/* sets default values*/
 body {
   background-color: var(--celadonBlue);
   color:var(--honeyDew);
@@ -34,6 +22,7 @@ body {
     "Lucida Sans", Arial, sans-serif;
   font-size: 1.2rem;
 }
+
 h1, h2, h5 {
   text-transform: capitalize;
 }
@@ -43,6 +32,7 @@ h1, h2 {
 h5 {
   font-size: 1.5rem;
 }
+
 a {
   color: var(--honeyDew);
   text-decoration: underline;
@@ -63,11 +53,6 @@ header h1 {
 }
 
 /* ------MAIN------ */
-main div {
-  /* border: 1px solid var(--celadonBlue); */
-  /* padding: 0.5rem; */
-}
-
 #topCard {
   margin: 0.5rem;
 }

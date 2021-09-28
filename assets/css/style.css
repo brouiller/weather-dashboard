@@ -53,13 +53,13 @@ header {
   padding: 1rem;
   background-color: var(--prussianBlue);
   text-align: center;
-  border-bottom: 0.25rem dashed var(--celadonBlue);
+  border-bottom: 0.25rem dashed var(--powderBlue);
 }
 
 header h1 {
   display: inline-block;
   font-size: 48px;
-  border-bottom: 1rem dashed var(--imperialRed);
+  border-bottom: 1rem dashed var(--powderBlue);
 }
 
 /* ------MAIN------ */
@@ -72,7 +72,7 @@ main div {
   margin: 0.5rem;
 }
 .topBorder{
-  border: 0.25rem dashed var(--imperialRed);
+  border: 0.25rem dashed var(--powderBlue);
 }
 .no-gutters {
   margin-right: 0;
@@ -80,14 +80,23 @@ main div {
 }
 .card {
   background-color:unset;
-  border: 0.25rem dashed var(--imperialRed);
+  border: 0.25rem dashed var(--powderBlue);
   margin-top: 0.25rem;
 }
 .citytop {
-  border-bottom: 0.25rem dashed var(--imperialRed);
+  border-bottom: 0.25rem dashed var(--powderBlue);
 }
 .btn {
   background-color: var(--imperialRed);
   color: var(--honeyDew);
   font:unset;
+}
+.searchcity {
+  cursor:pointer;
+}
+.list-group-item {
+  background-color: var(--prussianBlue);
+  text-align: center;
+  color: var(--honeyDew);
+  margin: 0.25rem;
 }

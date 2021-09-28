@@ -3,34 +3,46 @@ var urlSuffix = atob("ZWY5ZjNmOTY2Y2UyZjJjZTY1ZGUyMDA0YTU5MTkwMzI=");
 function init() {
   $("#submit").on("click", getCity);
   printStoredCities();
-  getWeather(33.749, -84.388, 'atlanta');
+  var cities = JSON.parse(localStorage.getItem("cities"));
+  if (cities) {
+    getWeather(cities[0].latitude, cities[0].longitude, cities[0].location);
+  } else {
+    getWeather(33.749, -84.388, "atlanta");
+  }
 }
 
 function printStoredCities() {
-  var storedCities = JSON.parse(localStorage.getItem("cities"));
-  if (storedCities) {
-    for (var i = 0; i < storedCities.length || i === 9; i++) {
-      var li = document.createElement("li");
-      li.innerHTML =
-        "<span class='searchCity' data-lat='" +
-        cities[i].latitude +
-        "' data-lon='" +
-        cities[i].longitude +
-        "'>" +
-        cities[i].city +
-        "</span>";
-      li.appendTo($('citylist'));
+  var cities = JSON.parse(localStorage.getItem("cities"));
+  if (cities) {
+    for (var i = 0; i < cities.length; i++) {
+      $("<li>", { class: "list-group-item" })
+        .append(
+          $(
+            "<span class='searchcity' data-lat='" +
+              cities[i].latitude +
+              "' data-lon='" +
+              cities[i].longitude +
+              "'>" +
+              cities[i].location +
+              "</span>"
+          )
+        )
+        .appendTo($("#citylist"));
     }
-    $('.searchCity').on('click', makeLink)
+    $(".searchcity").on("click", makeLink);
   }
 }
 
 function makeLink() {
-  
+  var citylink = this.textContent;
+  var latlink = $(this).attr("data-lat");
+  var lonlink = $(this).attr("data-lon");
+  getWeather(latlink, lonlink, citylink);
 }
 
 function getCity() {
   var city = $(".city").val().trim();
+  city = city.toLowerCase();
   city = city.replace(/ /g, "_");
   if (city) {
     var requestLatLon =
@@ -43,8 +55,8 @@ function getCity() {
         return response.json();
       })
       .then(function (data) {
-        console.log(data[0].lat, data[0].lon, city);
         getWeather(data[0].lat, data[0].lon, city);
+        storeCity(data[0].lat, data[0].lon, city);
       });
   } else {
     alert("Please enter a city.");
@@ -52,18 +64,33 @@ function getCity() {
 }
 
 function storeCity(lat, lon, city) {
+  var storedCities = JSON.parse(localStorage.getItem("cities"));
+  if (storedCities == null) {
+    storedCities = [];
+  }
   var entry = {
     latitude: lat,
     longitude: lon,
     location: city,
   };
-  localStorage.setItem("cities", JSON.stringify(entry));
+  if (!storedCities.some((u) => u.location === entry.location)) {
+    storedCities.unshift(entry);
+  } else {
+    console.log(storedCities);
+    console.log(entry);
+    // const i = storedCities.indexOf(entry);
+    // console.log(i);
+    // storedCities.splice(i, 1);
+
+  }
+  localStorage.setItem("cities", JSON.stringify(storedCities));
+  location.reload;
 }
 
 function getWeather(lat, lon, city) {
   var clearTopcard = (document.getElementById("topCard").innerHTML = "");
   var clearDaily = (document.getElementById("daily").innerHTML = "<h2></h2>");
-
+  var clearCitylist = (document.getElementById("citylist").innerHTML = "");
   var requestUrl =
     "https://api.openweathermap.org/data/2.5/onecall?lat=" +
     lat +
@@ -132,6 +159,7 @@ function getWeather(lat, lon, city) {
           )
           .appendTo($("#daily"));
       }
+      printStoredCities();
     });
 }
 init();
